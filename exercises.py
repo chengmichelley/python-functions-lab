@@ -10,10 +10,10 @@
 # Define your function and call it below.
 
 def calculate_area_triangle(base, height):
-    if base < 0 or height < 0:
-      print("Invalid, weight or height cannot be negative.")
-      return None
-    return(base * height)/2
+  if base < 0 or height < 0:
+    print("Invalid, weight or height cannot be negative.")
+    return None
+  return(base * height)/2
 
 print('Exercise 1:', calculate_area_triangle(10, 5))
 
@@ -29,9 +29,31 @@ print('Exercise 1:', calculate_area_triangle(10, 5))
 # Define your function and call it to see the result.
 
 def simple_interest(principal, rate_of_interest, time):
-   if principal < 0 or rate_of_interest < 0 or time < 0:
+  if principal < 0 or rate_of_interest < 0 or time < 0:
       print("Invalid, value(s) cannot be below 0.")
       return None
-   return (principal * rate_of_interest * time)/100
+  return (principal * rate_of_interest * time)/100
 
 print('Exercise 2:', simple_interest(1000, 5, 2))
+
+# Exercise 3: Apply a Discount
+#
+# Write a function named `apply_discount` that takes a product's price and a discount percentage (from 0 to 100).
+# Return the new price after applying the discount.
+#
+# Examples:
+# apply_discount(100, 25) should return 75.
+# apply_discount(80, 10) should return 72.
+#
+# Define your function and call it to display the discounted price.
+
+def apply_discount(price, discount_percentage):
+  if price < 0 or discount_percentage < 0:
+    print("Invalid, price cannot be below 0.")
+    return None
+  if discount_percentage > 100:
+    print("Invalid, discount cannot be greater than 100%.")
+    return None
+  return (price * (1 - discount_percentage/100))
+  
+print('Exercise 3:', apply_discount(100, 25))
