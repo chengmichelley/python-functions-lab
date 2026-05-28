@@ -9,13 +9,15 @@
 #
 # Define your function and call it below.
 
-def calculate_area_triangle(base, height):
-  if base < 0 or height < 0:
-    print("Invalid, weight or height cannot be negative.")
-    return None
-  return(base * height)/2
 
-print('Exercise 1:', calculate_area_triangle(10, 5))
+def calculate_area_triangle(base, height):
+    if base < 0 or height < 0:
+        print("Invalid, base or height cannot be negative.")
+        return None
+    return (base * height) / 2
+
+
+print("Exercise 1:", calculate_area_triangle(10, 5))
 
 # Exercise 2: Calculate Simple Interest
 #
@@ -28,13 +30,15 @@ print('Exercise 1:', calculate_area_triangle(10, 5))
 #
 # Define your function and call it to see the result.
 
-def simple_interest(principal, rate_of_interest, time):
-  if principal < 0 or rate_of_interest < 0 or time < 0:
-      print("Invalid, value(s) cannot be below 0.")
-      return None
-  return (principal * rate_of_interest * time)/100
 
-print('Exercise 2:', simple_interest(1000, 5, 2))
+def simple_interest(principal, rate_of_interest, time):
+    if principal < 0 or rate_of_interest < 0 or time < 0:
+        print("Invalid, value(s) cannot be below 0.")
+        return None
+    return (principal * rate_of_interest * time) / 100
+
+
+print("Exercise 2:", simple_interest(1000, 5, 2))
 
 # Exercise 3: Apply a Discount
 #
@@ -48,15 +52,18 @@ print('Exercise 2:', simple_interest(1000, 5, 2))
 # Define your function and call it to display the discounted price.
 
 def apply_discount(price, discount_percentage):
-  if price < 0 or discount_percentage < 0:
-    print("Invalid, price cannot be below 0.")
-    return None
-  if discount_percentage > 100:
-    print("Invalid, discount cannot be greater than 100%.")
-    return None
-  return (price * (1 - discount_percentage/100))
-  
-print('Exercise 3:', apply_discount(100, 25))
+    if price < 0 or discount_percentage < 0:
+        print("Invalid, price cannot be below 0.")
+        return None
+    if discount_percentage > 100:
+        print("Invalid, discount cannot be greater than 100%.")
+        return None
+    new_price = price * (1 - discount_percentage / 100)
+    
+    return int(new_price)
+
+
+print("Exercise 3:", apply_discount(100, 25))
 
 # Exercise 4: Convert Temperature
 #
@@ -72,17 +79,19 @@ print('Exercise 3:', apply_discount(100, 25))
 #
 # Define the function and then call it below.
 
-def convert_temperature(temperature, unit):
-  if unit == 'C':
-    return (temperature * 9/5) + 32
-  elif unit == 'F':
-    return (temperature - 32) * 5/9
-  else:
-    print("Invalid, unit must be 'C' or 'F'.")
-    return None
 
-print('Exercise 4: Convert 0°C to Fahrenheit:', convert_temperature(0, 'C'))
-print('Exercise 4: Convert 32°F to Celsius:', convert_temperature(32, 'F'))
+def convert_temperature(temperature, unit):
+    if unit.upper() == "C":
+        return (temperature * 9 / 5) + 32
+    elif unit.upper() == "F":
+        return (temperature - 32) * 5 / 9
+    else:
+        print("Invalid, unit must be 'C' or 'F'.")
+        return None
+
+
+print("Exercise 4: Convert 0°C to Fahrenheit:", convert_temperature(0, "C"))
+print("Exercise 4: Convert 32°F to Celsius:", convert_temperature(32, "F"))
 
 # Exercise 5: Sum to N
 #
@@ -94,13 +103,15 @@ print('Exercise 4: Convert 32°F to Celsius:', convert_temperature(32, 'F'))
 #
 # Define the function and then call it below.
 
-def sum_to(n):
-  if n < 1:
-    print("Invalid 'n' must be equal to or greater than 1.")
-    return None
-  return n*(n+1)//2
 
-print('Exercise 5:', sum_to(6))
+def sum_to(n):
+    if n < 0:
+        print("Invalid 'n' cannot be negative.")
+        return None
+    return n * (n + 1) // 2
+
+
+print("Exercise 5:", sum_to(6))
 
 # Exercise 6: Find the Largest Number
 #
@@ -112,10 +123,12 @@ print('Exercise 5:', sum_to(6))
 #
 # Define your function and test it with different inputs.
 
-def largest(a, b, c):
-  return max(a, b, c)
 
-print('Exercise 6:', largest(1, 2, 3))
+def largest(a, b, c):
+    return max(a, b, c)
+
+
+print("Exercise 6:", largest(1, 2, 3))
 
 # Exercise 7: Calculate a Tip
 #
@@ -127,10 +140,12 @@ print('Exercise 6:', largest(1, 2, 3))
 #
 # Write your function and test its output below.
 
-def calculate_tip(bill_amount, tip_percentage):
-  return (bill_amount * tip_percentage)/100
 
-print('Exercise 7:', calculate_tip(50, 20))
+def calculate_tip(bill_amount, tip_percentage):
+    return (bill_amount * tip_percentage) / 100
+
+
+print("Exercise 7:", calculate_tip(50, 20))
 
 # Exercise 8: Calculate Product of Numbers
 #
@@ -143,19 +158,25 @@ print('Exercise 7:', calculate_tip(50, 20))
 #
 # Define the function and call it with different sets of numbers to test.
 
-def product(*args):
-  result = 1
-  for n in args:
-    result *=n
-  return result
 
-print('Exercise 8:', product(2, 5, 5))
+def product(*args):
+    if len(args) == 0:
+        print("Invalid, please provide at least one number to multiply.")
+        return None
+    
+    result = 1
+    for n in args:
+        result *= n
+    return result
+
+
+print("Exercise 8:", product(2, 5, 5))
 
 # Exercise 9: Basic Calculator
 #
-# Create a function named `basic_calculator` that takes three arguments: 
-# two numbers and a string representing an operation ('add', 'subtract', 'multiply', 'divide'). 
-# Perform the provided operation on the two numbers. In operations where the order of numbers is important, 
+# Create a function named `basic_calculator` that takes three arguments:
+# two numbers and a string representing an operation ('add', 'subtract', 'multiply', 'divide').
+# Perform the provided operation on the two numbers. In operations where the order of numbers is important,
 # treat the first parameter as the first operand and the second parameter as the second operand.
 #
 # Examples:
@@ -166,19 +187,22 @@ print('Exercise 8:', product(2, 5, 5))
 #
 # Define the function and then call it below.
 
-def basic_calculator(num1, num2, operation):
-  if operation == 'subtract':
-    return (num1 - num2)
-  elif operation == 'add':
-    return (num1 + num2)
-  elif operation == 'multiply':
-    return (num1 * num2)
-  elif operation == 'divide':
-    if num2 == 0:
-      print("Invalid, cannot divide by 0.")
-      return None
-    return (num1 / num2)
-  else:
-    return("Invalid operation. Please choose subtract, add, multiply or divide.")
 
-print('Exercise 9 Result:', basic_calculator(10, 5, "subtract"))
+def basic_calculator(num1, num2, operation):
+    if operation == "subtract":
+        return num1 - num2
+    elif operation == "add":
+        return num1 + num2
+    elif operation == "multiply":
+        return num1 * num2
+    elif operation == "divide":
+        if num2 == 0:
+            print("Invalid, cannot divide by 0.")
+            return None
+        return num1 / num2
+    else:
+        print("Invalid operation. Please choose subtract, add, multiply or divide.")
+        return None
+
+
+print("Exercise 9 Result:", basic_calculator(10, 5, "subtract"))
